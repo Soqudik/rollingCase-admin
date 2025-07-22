@@ -48,12 +48,9 @@ export default function Home() {
           </p>
         )}
         <div className="mt-6 flex justify-center">
-
-<a href="/open-case" className="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">
-  Открыть
-</a>
-            Open
-          </button>
+          <a href="/open-case" className="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">
+            Открыть
+          </a>
         </div>
       </div>
 
@@ -61,10 +58,3 @@ export default function Home() {
     </div>
   );
 }
-
-<Image
-  src="https://i.ibb.co/4J8GpLz/ton-case.png"
-  alt="TON Case"
-  layout="fill"
-  objectFit="contain"
-/>
