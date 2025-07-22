@@ -1,66 +1,59 @@
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState("cases");
+  const [tab, setTab] = useState("cases");
 
   const renderContent = () => {
-    switch (activeTab) {
+    switch (tab) {
       case "cases":
-        return <div><h2>Cases</h2><p>List of cases will be here.</p></div>;
+        return (
+          <div className="p-4 text-center">
+            <h2 className="text-lg font-semibold mb-4">📦 Case</h2>
+            <div className="grid grid-cols-2 gap-2 rounded-xl overflow-hidden max-w-xs mx-auto">
+              <Image src="/case1.png" width={100} height={100} alt="case1" />
+              <Image src="/case2.png" width={100} height={100} alt="case2" />
+              <Image src="/case3.png" width={100} height={100} alt="case3" />
+              <Image src="/case4.png" width={100} height={100} alt="case4" />
+            </div>
+            <button className="mt-6 bg-blue-500 text-white px-6 py-2 rounded-xl text-sm">
+              🔌 Connect TON
+            </button>
+          </div>
+        );
       case "upgrade":
-        return <div><h2>Upgrade</h2><p>Upgrade your account or features here.</p></div>;
+        return (
+          <div className="p-4 text-center">
+            <h2 className="text-lg font-semibold mb-4">🚀 Upgrade</h2>
+            <p className="text-sm text-gray-600">Upgrade your level to get better drops.</p>
+          </div>
+        );
       case "profile":
-        return <div><h2>Profile</h2><p>Your user profile info will be here.</p></div>;
+        return (
+          <div className="p-4 text-center">
+            <h2 className="text-lg font-semibold mb-4">👤 Profile</h2>
+            <p className="text-sm text-gray-600">Your balance, inventory and settings.</p>
+          </div>
+        );
       default:
         return null;
     }
   };
 
   return (
-    <div
-      style={{
-        maxWidth: 600,
-        margin: "0 auto",
-        fontFamily: "Arial, sans-serif",
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-      }}
-    >
-      <header style={{ padding: "20px", borderBottom: "1px solid #ccc" }}>
-        <h1>Rolling Case Admin</h1>
-      </header>
+    <div className="flex flex-col min-h-screen justify-between bg-white text-gray-900">
+      <main>{renderContent()}</main>
 
-      <main style={{ flexGrow: 1, padding: "20px" }}>{renderContent()}</main>
-
-      <nav
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          borderTop: "1px solid #ccc",
-          padding: "10px 0",
-          backgroundColor: "#f9f9f9",
-          position: "sticky",
-          bottom: 0,
-        }}
-      >
-        {["cases", "upgrade", "profile"].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            style={{
-              padding: "10px 20px",
-              fontSize: 16,
-              backgroundColor: activeTab === tab ? "#4caf50" : "transparent",
-              color: activeTab === tab ? "white" : "black",
-              border: "none",
-              borderRadius: 5,
-              cursor: "pointer",
-            }}
-          >
-            {tab.charAt(0).toUpperCase() + tab.slice(1)}
-          </button>
-        ))}
+      <nav className="flex justify-around border-t border-gray-200 py-3 bg-white shadow-inner">
+        <button onClick={() => setTab("cases")} className="text-center text-sm">
+          📦<div>case</div>
+        </button>
+        <button onClick={() => setTab("upgrade")} className="text-center text-sm">
+          🚀<div>upgrade</div>
+        </button>
+        <button onClick={() => setTab("profile")} className="text-center text-sm">
+          👤<div>profile</div>
+        </button>
       </nav>
     </div>
   );
