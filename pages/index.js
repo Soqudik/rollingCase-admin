@@ -48,10 +48,10 @@ export default function Home() {
           </p>
         )}
         <div className="mt-6 flex justify-center">
-          <button
-            onClick={rollPrize}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition"
-          >
+
+<a href="/open-case" className="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">
+  Открыть
+</a>
             Open
           </button>
         </div>
